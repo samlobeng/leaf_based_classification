@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "plantClassification",
+    "slug": "plantClassification",
+    "version": "1.0.0",
+    "platforms": ["ios", "android"],
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "permissions": {
+      "camera": {
+        "allowsRecording": true,
+        "allowsEditing": false,
+        "quality": "high",
+        "roll": true
+      },
+      "mediaLibrary": {
+        "writeOnly": true,
+        "read": true
+      }
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
