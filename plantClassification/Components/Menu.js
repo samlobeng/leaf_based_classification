@@ -25,11 +25,11 @@ export default function Menu({ navigation }) {
             <Button
             title='Classify a New Plant'
             color= "#0CAC1C"
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.navigate('Predict')}
             />
              
         </TouchableOpacity>
-        <TouchableOpacity style = {styles.history} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style = {styles.history} onPress={() => navigation.navigate('HistoryScreen')}>
             <View style = {styles.leafContainer}>
             <Image
                 source={require('../assets/history.png')}
@@ -45,7 +45,7 @@ export default function Menu({ navigation }) {
             <Button
             title='View Classification History'
             color= "#0CAC1C"
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.navigate('HistoryScreen')}
             style={styles.btnHistory}
             />
              

@@ -4,6 +4,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import { Camera } from 'expo-camera';
 import axios from 'axios';
 import Toast from 'react-native-root-toast';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Separator = () => <View style={styles.separator} />
 
@@ -92,14 +93,27 @@ export default function Predict({ navigation }) {
         if (response.ok) {
             const data = await response.json();
           // Check confidence rate
-          if (data.confidence >= 85) {
+          if (data.confidence >= 80) {
             console.log('Image is classified as a medicinal plant');
             // Handle the case when the image is classified as a medicinal plant
             console.log('Prediction:', data);
             const predictionData = {
               imageUri: image,
               prediction: data,
+              timestamp: new Date().toISOString(),
             };
+
+            // Get existing prediction history from AsyncStorage or initialize an empty array
+          const existingHistory = await AsyncStorage.getItem('predictionHistory');
+          const predictionHistory = existingHistory ? JSON.parse(existingHistory) : [];
+
+          // Append the new prediction entry to the history
+          predictionHistory.push(predictionData);
+
+          // Save the updated prediction history to AsyncStorage
+          await AsyncStorage.setItem('predictionHistory', JSON.stringify(predictionHistory));
+
+
             navigation.navigate('Results', { predictionData });
           } else {
            Toast.show("Image is not a medicinal plant", {

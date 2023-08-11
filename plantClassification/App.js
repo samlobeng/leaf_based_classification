@@ -8,6 +8,8 @@ import Menu from './Components/Menu';
 import Predict from './Components/Predict';
 import Results from './Components/Results';
 import { RootSiblingParent } from 'react-native-root-siblings';
+import LimeResult from './Components/LimeResult';
+import HistoryScreen from './Components/HistoryScreen';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -20,7 +22,8 @@ export default function App() {
         <Stack.Screen name="Menu" component={Menu} />
         <Stack.Screen name="Predict" component={Predict} />
         <Stack.Screen name="Results" component={Results} />
-        
+        <Stack.Screen name="LimeResult" component={LimeResult} />
+        <Stack.Screen name="HistoryScreen" component={HistoryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
     </RootSiblingParent>
